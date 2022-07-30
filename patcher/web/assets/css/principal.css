@@ -1,0 +1,17 @@
+﻿/*~ S L I D E R ~*/
+#slider{
+position: relative;
+width: 496px;
+height: 316px;
+float: left;
+}
+#slider ul, #slider li{
+margin:0;
+padding:0;
+list-style:none;
+}
+#slider li{ 
+width: 496px;
+height: 316px;
+overflow: hidden; 
+}

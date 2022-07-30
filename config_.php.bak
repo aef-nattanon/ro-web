@@ -1,0 +1,25 @@
+<?php
+session_start();
+date_default_timezone_set("Asia/Bangkok");
+
+define('SITE_KEY', '6LcyL2EfAAAAAHKddCeOipMb-OIs4yjnkVmhDGKT');
+define('SECRET_KEY', '6LcyL2EfAAAAAJm8A5mdMdTenluWnb997PvzJ8Qg');
+
+$merchant_id = 'DX22011810'; // รหัสร้านค้า TMPAY XR20001000
+//สามารถรับพารามิเตอร์จากข้างนิกได้ เช่น ลงโฮมจริง หรือไม่ก็ ฟอร์เวอร์พอต
+$config_url = 'https://classic-auro.com/'; // URL เว็บ รอ tmpay ตอบกลับข้อมูลที่ส่งกลับมายัง ตัวอย่าง http://127.0.0.1/tmpay/tmpay_result.php
+
+$db_host = '128.199.223.245';
+$db_user = 'develop';
+$db_pass = 'develop123';
+$db_name = 'ro3';
+
+
+/// DON'T EDIT ==> 
+$connect = new mysqli($db_host, $db_user, $db_pass, $db_name);
+$connect->query('SET names utf8');
+if ($connect->connect_errno) {
+  exit($connect->connect_error);
+}
+$config = $connect->query('SELECT * FROM login')->fetch_assoc();
+/// DON'T EDIT ==<

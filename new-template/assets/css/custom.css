@@ -1,0 +1,16 @@
+/* PLACE YOU CUSTOM STYLES IN THIS FILE */
+
+.bt-1 {
+  background-image: url('../images/menu-1.png');
+  background-size: auto;
+}
+
+.bt-2 {
+  background-image: url('../images/menu-2.png');
+  background-size: auto;
+}
+
+.bt-3 {
+  background-image: url('../images/menu-3.png');
+  background-size: auto;
+}

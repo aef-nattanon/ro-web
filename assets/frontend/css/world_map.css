@@ -1,0 +1,208 @@
+body {
+	font-family: 'Kanit';
+	font-size: 13px;
+	backgound-color: white;
+
+}
+
+select {
+	  color: black;
+	  background-color: white;
+	  font-family: 'Kanit';
+	  font-size: 13px;
+}
+
+h2 {
+	padding: 6px;
+	padding-left: 80px;
+	display: block;
+	color: white;
+	margin-top: 0px;
+}
+
+.wrap-main-content {
+	width: 100%;
+	/*background-color: white;*/
+	color: black;
+	min-height: 10px;
+	z-index: 0;
+}
+
+.world-map-part {
+	/*background: url("../images/bg-home.jpg") no-repeat;*/
+	background-position: center top;
+    background-size: 100% auto;
+}
+
+.heading_map {
+	line-height: 20px;
+	font-size: 12px;
+	margin-bottom: 0px;
+	padding: 2px 10px;
+	letter-spacing: 1px;
+}
+
+.wrapper {
+	padding: 20px 0px 20px 0px;
+	position: inherit;
+	margin: 0px auto;
+
+}
+
+.world_map {
+	margin: 0px auto;
+	position: relative;
+	width: 1000px;
+	min-height: 850px;
+}
+
+.map_name {
+	font-size: 16px;
+	padding-left: 10px;
+}
+
+.world_map img {
+	position: absolute;
+	max-height: 49px;
+	max-width: 49px;
+	border: 0px;
+	display: block;
+	opacity: 1;
+}
+
+.dungeon {
+	position: relative;
+	width: 1000px;
+	margin: 20px auto;
+}
+
+.dungeon img {
+	position: absolute;
+	max-height: 49px;
+	max-width: 49px;
+	border: 0px;
+	display: block;
+	opacity: 1;
+}
+
+#head {
+	color: black;
+	font-weight: bold;
+	border-bottom: 0px dotted grey;
+}
+
+.mapname {
+	background-color: #585858;
+	color: #000;
+	padding-left: 10px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size: 14px;
+  }
+  
+  
+.detail {
+	font-family: 'Kanit';
+	font-size: 12px;
+	color: #1C1C1C;
+	background-color: #FEFEFE;
+	min-width: 100px;
+	min-height: 20px;
+	 border:1px groove #6E6E6E;
+	border-radius: 5px;
+	padding: 5px;
+	border-collapse: collapse;
+	float: left;
+}
+
+.name {
+	min-width: 180px;
+	max-width: 230px;
+	display: block;
+	float: left;
+	padding-left: 4px;
+	line-height: 20px;	
+}
+
+.amount {
+	width: 60px;
+	float: left;
+	line-height: 20px;
+}
+
+.time {
+	display: block;
+	min-width: 80px;
+	max-width: 140px;
+	float: left;
+	line-height: 20px;
+}
+
+
+.line {
+	width: 100%;
+	border-bottom: 1px solid #EEE;
+	float: left;
+}
+
+.cover_map {
+	min-width: 490px;
+	max-width: 990px;
+	float: left;
+	height: 80px;
+}
+
+.list_dun {
+	width: 50px;
+	float: left;
+}
+
+.list_dun img{
+	position: relative;
+	max-height: 49px;
+	max-width: 49px;
+	border: 0px;
+	display: block;
+	opacity: 1;
+}
+
+.map_name {
+	width: 140px;
+	float: left;
+	height: 50px
+	padding-left: 20px;
+	border-bottom: 0px;
+	vertical-align:top;
+	font-weight: normal;
+	padding-top: 7px;
+	color: #000;
+}
+
+
+
+#bg_theme {
+	/*background-color: #000000;*/
+	color: #000;
+	
+}
+
+.heading_top {
+
+	position: relative;
+	width: 1000px;
+	margin: 0px auto 0px auto;
+	display:block;
+	margin-bottom: 30px;
+	border: 1px solid black;
+	border-radius: 3px;
+}
+
+.boss_tag {
+	color: #3B0B0B;	
+}
+
+.mini_boss_tag {
+	color: #240B3B;	
+}
