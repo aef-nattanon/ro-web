@@ -72,51 +72,51 @@ if (isset($_GET['register'])) {
 	if ($_POST['password'] != $_POST['repassword']) {
 		DisplayMSG('error', 'Error', 'รหัสผ่าน ไม่ตรงกัน !!', 'false');
 	}
-	if (empty($_POST['recaptcha'])) {
-		DisplayMSG('error', 'Error', 'กรุณายืนยันตัวตน.', 'false');
-	}
+	// if (empty($_POST['recaptcha'])) {
+	// 	DisplayMSG('error', 'Error', 'กรุณายืนยันตัวตน.', 'false');
+	// }
 	$birthdate = $_POST['sY1'] . "-" . $_POST['sM1'] . "-" . $_POST['sD1'];
-	$ip = $_SERVER['REMOTE_ADDR'];
-	$secret = SECRET_KEY;
-	$captcha = $_POST['recaptcha'];
+	// $ip = $_SERVER['REMOTE_ADDR'];
+	// $secret = SECRET_KEY;
+	// $captcha = $_POST['recaptcha'];
 
-	$stream_opts = [
-		"ssl" => [
-			"verify_peer" => false,
-			"verify_peer_name" => false,
-		]
-	];
+	// $stream_opts = [
+	// 	"ssl" => [
+	// 		"verify_peer" => false,
+	// 		"verify_peer_name" => false,
+	// 	]
+	// ];
 
-	$gRecaptchaResponse = $captcha;
-	$remoteIp = $ip;
-	$url = "https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$gRecaptchaResponse&remoteip=$remoteIp";
-	$response = file_get_contents($url, false, stream_context_create($stream_opts));
-	$result = json_decode($response);
-	if ($result->success) {
-		$username = $connect->real_escape_string($_POST['username']);
-		$password = $_POST['password'];
-		$query = $connect->query('SELECT * FROM login WHERE userid = "' . $username . '" ');
-		$username_check = $query->num_rows;
-		if ($username_check >= 1) {
-			DisplayMSG('error', 'Error', ' มีผู้ใช้งานไปแล้ว !!!', 'false');
-		} else {
-			// $query = $connect->query
-			// ('
-			// 	INSERT INTO `user` (`id`, `username`, `password`, `ip`, `point`, `ban`, `rank`) VALUES 
-			// 	(NULL, "'.$username.'", "'.$password.'", "'.$_SERVER['REMOTE_ADDR'].'", "0", "false", "Member");
-			// ');
-			$query = $connect->query('INSERT INTO login (account_id, userid, user_pass, sex, email, group_id, state, birthdate) 
+	// $gRecaptchaResponse = $captcha;
+	// $remoteIp = $ip;
+	// $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$gRecaptchaResponse&remoteip=$remoteIp";
+	// $response = file_get_contents($url, false, stream_context_create($stream_opts));
+	// $result = json_decode($response);
+	// if ($result->success) {
+	$username = $connect->real_escape_string($_POST['username']);
+	$password = $_POST['password'];
+	$query = $connect->query('SELECT * FROM login WHERE userid = "' . $username . '" ');
+	$username_check = $query->num_rows;
+	if ($username_check >= 1) {
+		DisplayMSG('error', 'Error', ' มีผู้ใช้งานไปแล้ว !!!', 'false');
+	} else {
+		// $query = $connect->query
+		// ('
+		// 	INSERT INTO `user` (`id`, `username`, `password`, `ip`, `point`, `ban`, `rank`) VALUES 
+		// 	(NULL, "'.$username.'", "'.$password.'", "'.$_SERVER['REMOTE_ADDR'].'", "0", "false", "Member");
+		// ');
+		$query = $connect->query('INSERT INTO login (account_id, userid, user_pass, sex, email, group_id, state, birthdate) 
 			VALUES (NULL, "' . $username . '", "' . $password . '", "' . $_POST['sex'] . '", "' . $_POST['email'] . '", "0", "0", "' . $birthdate . '"); ');
 
-			if ($query) {
-				DisplayMSG('success', 'Register Success !!!', 'สมัครสมาชิกสำเร็จ !!!..', 'true');
-			} else {
-				DisplayMSG('error', 'Error', ' สมัครสมาชิกไม่สำเร็จ !!!', 'false');
-			}
+		if ($query) {
+			DisplayMSG('success', 'Register Success !!!', 'สมัครสมาชิกสำเร็จ !!!..', 'true');
+		} else {
+			DisplayMSG('error', 'Error', ' สมัครสมาชิกไม่สำเร็จ !!!', 'false');
 		}
-	} else {
-		DisplayMSG('error', 'Are you a rebot!!', 'กรุณายืนยันตัวตนก่อน!!.', 'true');
 	}
+	// } else {
+	// 	DisplayMSG('error', 'Are you a rebot!!', 'กรุณายืนยันตัวตนก่อน!!.', 'true');
+	// }
 }
 
 
@@ -137,53 +137,53 @@ if (isset($_SESSION['username'])) {
 		} elseif (empty($_POST['vip_type'])) {
 			DisplayMSG('error', 'Error', 'ต้องเลือก VIP ที่จะเติม', 'false');
 		} else {
-			if (empty($_POST['recaptcha'])) {
-				DisplayMSG('error', 'Error', 'กรุณายืนยันตัวตน.', 'false');
+			// if (empty($_POST['recaptcha'])) {
+			// 	DisplayMSG('error', 'Error', 'กรุณายืนยันตัวตน.', 'false');
+			// }
+
+			// $secretKey = SECRET_KEY;
+			// $captcha = $_POST['recaptcha'];
+			// $ip = $_SERVER['REMOTE_ADDR'];
+			// // post request to server
+			// $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
+			// $response = file_get_contents($url);
+			// $responseKeys = json_decode($response, true);
+			// // should return JSON with success as true
+			// if ($responseKeys["success"]) {
+
+			$query = $connect->query('SELECT * FROM web_topup WHERE truemoney_card = "' . $_POST['truemoney_card'] . '" ;');
+			$tmt_check = $query->num_rows;
+			if ($tmt_check >= 1) {
+				DisplayMSG('error', 'Error', ' บัตรเงินสดทรูมันนี่มีผู้ใช้งานไปแล้ว !!!', 'false');
 			}
 
-			$secretKey = SECRET_KEY;
-			$captcha = $_POST['recaptcha'];
-			$ip = $_SERVER['REMOTE_ADDR'];
-			// post request to server
-			$url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
-			$response = file_get_contents($url);
-			$responseKeys = json_decode($response, true);
-			// should return JSON with success as true
-			if ($responseKeys["success"]) {
+			$truemoney_cashcard = $_POST['truemoney_card']; // รหัสบัตรเงินสดทรูมันนี่ (14 หลัก)
+			$char_id = $_POST['char_id'];
+			$vip_type = $_POST['vip_type'];
+			$tmpay_url = "https://www.tmpay.net/TPG/backend.php?merchant_id={$merchant_id}&password={$truemoney_cashcard}&resp_url={$config_url}tm_check_vip.php";
 
-				$query = $connect->query('SELECT * FROM web_topup WHERE truemoney_card = "' . $_POST['truemoney_card'] . '" ;');
-				$tmt_check = $query->num_rows;
-				if ($tmt_check >= 1) {
-					DisplayMSG('error', 'Error', ' บัตรเงินสดทรูมันนี่มีผู้ใช้งานไปแล้ว !!!', 'false');
-				}
-
-				$truemoney_cashcard = $_POST['truemoney_card']; // รหัสบัตรเงินสดทรูมันนี่ (14 หลัก)
-				$char_id = $_POST['char_id'];
-				$vip_type = $_POST['vip_type'];
-				$tmpay_url = "https://www.tmpay.net/TPG/backend.php?merchant_id={$merchant_id}&password={$truemoney_cashcard}&resp_url={$config_url}tm_check_vip.php";
-
-				//
-				$curl = curl_init($tmpay_url);
-				curl_setopt($curl, CURLOPT_TIMEOUT, 15);
-				curl_setopt($curl, CURLOPT_HEADER, FALSE);
-				curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-				curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-				curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-				$curl_content = curl_exec($curl);
-				curl_close($curl);
-				$t = time();
-				if (strpos($curl_content, 'SUCCEED') !== FALSE) {
-					$sql = "INSERT INTO `web_topup` (`id`, `type`, `transaction_id`, `truemoney_card`, `point`, `time`, `status`, `username`, `ip`, `vip`, `char_id`) VALUES 
+			//
+			$curl = curl_init($tmpay_url);
+			curl_setopt($curl, CURLOPT_TIMEOUT, 15);
+			curl_setopt($curl, CURLOPT_HEADER, FALSE);
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+			curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+			$curl_content = curl_exec($curl);
+			curl_close($curl);
+			$t = time();
+			if (strpos($curl_content, 'SUCCEED') !== FALSE) {
+				$sql = "INSERT INTO `web_topup` (`id`, `type`, `transaction_id`, `truemoney_card`, `point`, `time`, `status`, `username`, `ip`, `vip`, `char_id`) VALUES 
 					(NULL, '" . $_POST['topuptype'] . "', '0', '" . $truemoney_cashcard . "', '0', '" . $t . "', '0', '" . $_SESSION['username'] . "', '0', " .	$vip_type . ", '" . $char_id . "');";
-					$query = $connect->query($sql);
+				$query = $connect->query($sql);
 
-					DisplayMSG('success', 'Success !!!', 'ดำเนินการสำเร็จกรุณารอตรวจสอบ 2-5 นาที', 'true');
-				} else {
-					DisplayMSG('error', 'Error', 'ไม่สามารถเชื่อมต่อได้', 'false');
-				}
+				DisplayMSG('success', 'Success !!!', 'ดำเนินการสำเร็จกรุณารอตรวจสอบ 2-5 นาที', 'true');
 			} else {
-				DisplayMSG('error', 'Error', 'กรุณายืนยันตัวตนใหม่', 'true');
+				DisplayMSG('error', 'Error', 'ไม่สามารถเชื่อมต่อได้', 'false');
 			}
+			// } else {
+			// 	DisplayMSG('error', 'Error', 'กรุณายืนยันตัวตนใหม่', 'true');
+			// }
 		}
 
 		//ดูตัวอย่างได้ที่ https://www.tmpay.net/front/TMPAY-Overview_Coding_PHP.pdf
@@ -207,48 +207,48 @@ if (isset($_SESSION['username'])) {
 				DisplayMSG('error', 'Error', 'กรุณายืนยันตัวตน.', 'false');
 			}
 
-			$secretKey = SECRET_KEY;
-			$captcha = $_POST['recaptcha'];
-			$ip = $_SERVER['REMOTE_ADDR'];
-			// post request to server
-			$url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
-			$response = file_get_contents($url);
-			$responseKeys = json_decode($response, true);
-			// should return JSON with success as true
-			if ($responseKeys["success"]) {
+			// $secretKey = SECRET_KEY;
+			// $captcha = $_POST['recaptcha'];
+			// $ip = $_SERVER['REMOTE_ADDR'];
+			// // post request to server
+			// $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
+			// $response = file_get_contents($url);
+			// $responseKeys = json_decode($response, true);
+			// // should return JSON with success as true
+			// if ($responseKeys["success"]) {
 
-				$query = $connect->query('SELECT * FROM web_topup WHERE truemoney_card = "' . $_POST['truemoney_card'] . '" ;');
-				$tmt_check = $query->num_rows;
-				if ($tmt_check >= 1) {
-					DisplayMSG('error', 'Error', ' บัตรเงินสดทรูมันนี่มีผู้ใช้งานไปแล้ว !!!', 'false');
-				}
-
-				$truemoney_cashcard = $_POST['truemoney_card']; // รหัสบัตรเงินสดทรูมันนี่ (14 หลัก)
-				$tmpay_url = "https://www.tmpay.net/TPG/backend.php?merchant_id={$merchant_id}&password={$truemoney_cashcard}&resp_url={$config_url}tm_check_.php";
-
-				//
-				$curl = curl_init($tmpay_url);
-				curl_setopt($curl, CURLOPT_TIMEOUT, 15);
-				curl_setopt($curl, CURLOPT_HEADER, FALSE);
-				curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-				curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-				curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-				$curl_content = curl_exec($curl);
-				curl_close($curl);
-				$t = time();
-				if (strpos($curl_content, 'SUCCEED') !== FALSE) {
-
-					$sql = "INSERT INTO `web_topup` (`id`, `type`, `transaction_id`, `truemoney_card`, `point`, `time`, `status`, `username`, `ip`) VALUES 
-					(NULL, '" . $_POST['topuptype'] . "', '0', '" . $truemoney_cashcard . "', '0', '" . $t . "', '0', '" . $_SESSION['username'] . "', '0');";
-					$query = $connect->query($sql);
-
-					DisplayMSG('success', 'Success !!!', 'ดำเนินการสำเร็จกรุณารอตรวจสอบ 2-5 นาที', 'true');
-				} else {
-					DisplayMSG('error', 'Error', 'ไม่สามารถเชื่อมต่อได้', 'false');
-				}
-			} else {
-				DisplayMSG('error', 'Error', 'กรุณายืนยันตัวตนใหม่', 'true');
+			$query = $connect->query('SELECT * FROM web_topup WHERE truemoney_card = "' . $_POST['truemoney_card'] . '" ;');
+			$tmt_check = $query->num_rows;
+			if ($tmt_check >= 1) {
+				DisplayMSG('error', 'Error', ' บัตรเงินสดทรูมันนี่มีผู้ใช้งานไปแล้ว !!!', 'false');
 			}
+
+			$truemoney_cashcard = $_POST['truemoney_card']; // รหัสบัตรเงินสดทรูมันนี่ (14 หลัก)
+			$tmpay_url = "https://www.tmpay.net/TPG/backend.php?merchant_id={$merchant_id}&password={$truemoney_cashcard}&resp_url={$config_url}tm_check_.php";
+
+			//
+			$curl = curl_init($tmpay_url);
+			curl_setopt($curl, CURLOPT_TIMEOUT, 15);
+			curl_setopt($curl, CURLOPT_HEADER, FALSE);
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+			curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+			$curl_content = curl_exec($curl);
+			curl_close($curl);
+			$t = time();
+			if (strpos($curl_content, 'SUCCEED') !== FALSE) {
+
+				$sql = "INSERT INTO `web_topup` (`id`, `type`, `transaction_id`, `truemoney_card`, `point`, `time`, `status`, `username`, `ip`) VALUES 
+					(NULL, '" . $_POST['topuptype'] . "', '0', '" . $truemoney_cashcard . "', '0', '" . $t . "', '0', '" . $_SESSION['username'] . "', '0');";
+				$query = $connect->query($sql);
+
+				DisplayMSG('success', 'Success !!!', 'ดำเนินการสำเร็จกรุณารอตรวจสอบ 2-5 นาที', 'true');
+			} else {
+				DisplayMSG('error', 'Error', 'ไม่สามารถเชื่อมต่อได้', 'false');
+			}
+			// } else {
+			// 	DisplayMSG('error', 'Error', 'กรุณายืนยันตัวตนใหม่', 'true');
+			// }
 		}
 
 		//ดูตัวอย่างได้ที่ https://www.tmpay.net/front/TMPAY-Overview_Coding_PHP.pdf
@@ -268,52 +268,52 @@ if (isset($_SESSION['username'])) {
 		if (empty($_POST['truemoney_card'])) {
 			DisplayMSG('error', 'Error', 'ต้องกรอกรหัสบัตรเงินสด Razer Gold (14 หลัก)', 'false');
 		} else {
-			if (empty($_POST['recaptcha'])) {
-				DisplayMSG('error', 'Error', 'กรุณายืนยันตัวตน.', 'false');
-			}
+			// if (empty($_POST['recaptcha'])) {
+			// 	DisplayMSG('error', 'Error', 'กรุณายืนยันตัวตน.', 'false');
+			// }
 
-			$secretKey = SECRET_KEY;
-			$captcha = $_POST['recaptcha'];
-			$ip = $_SERVER['REMOTE_ADDR'];
-			// post request to server
-			$url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
-			$response = file_get_contents($url);
-			$responseKeys = json_decode($response, true);
+			// $secretKey = SECRET_KEY;
+			// $captcha = $_POST['recaptcha'];
+			// $ip = $_SERVER['REMOTE_ADDR'];
+			// // post request to server
+			// $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
+			// $response = file_get_contents($url);
+			// $responseKeys = json_decode($response, true);
 			// should return JSON with success as true
-			if ($responseKeys["success"]) {
+			// if ($responseKeys["success"]) {
 
-				$query = $connect->query('SELECT * FROM web_topup WHERE truemoney_card = "' . $_POST['truemoney_card'] . '" ;');
-				$tmt_check = $query->num_rows;
-				if ($tmt_check >= 1) {
-					DisplayMSG('error', 'Error', ' บัตรเงินสดทรูมันนี่มีผู้ใช้งานไปแล้ว !!!', 'false');
-				}
-
-				$truemoney_cashcard = $_POST['truemoney_card']; // รหัสบัตรเงินสดทรูมันนี่ (14 หลัก)
-				$tmpay_url = "https://www.tmpay.net/TPG/backend.php?merchant_id={$merchant_id}&password={$truemoney_cashcard}&resp_url={$config_url}tm_check_.php&channel=razer_gold_pin";
-
-				//
-				$curl = curl_init($tmpay_url);
-				curl_setopt($curl, CURLOPT_TIMEOUT, 15);
-				curl_setopt($curl, CURLOPT_HEADER, FALSE);
-				curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-				curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-				curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-				$curl_content = curl_exec($curl);
-				curl_close($curl);
-				$t = time();
-				if (strpos($curl_content, 'SUCCEED') !== FALSE) {
-
-					$sql = "INSERT INTO `web_topup` (`id`, `type`, `transaction_id`, `truemoney_card`, `point`, `time`, `status`, `username`, `ip`) VALUES 
-					(NULL, '" . $_POST['topuptype'] . "', '0', '" . $truemoney_cashcard . "', '0', '" . $t . "', '0', '" . $username . "', '0');";
-					$query = $connect->query($sql);
-
-					DisplayMSG('success', 'Success !!!', 'ดำเนินการสำเร็จกรุณารอตรวจสอบ 2-5 นาที', 'true');
-				} else {
-					DisplayMSG('error', 'Error', 'ไม่สามารถเชื่อมต่อได้', 'false');
-				}
-			} else {
-				DisplayMSG('error', 'Error', 'กรุณายืนยันตัวตนใหม่', 'true');
+			$query = $connect->query('SELECT * FROM web_topup WHERE truemoney_card = "' . $_POST['truemoney_card'] . '" ;');
+			$tmt_check = $query->num_rows;
+			if ($tmt_check >= 1) {
+				DisplayMSG('error', 'Error', ' บัตรเงินสดทรูมันนี่มีผู้ใช้งานไปแล้ว !!!', 'false');
 			}
+
+			$truemoney_cashcard = $_POST['truemoney_card']; // รหัสบัตรเงินสดทรูมันนี่ (14 หลัก)
+			$tmpay_url = "https://www.tmpay.net/TPG/backend.php?merchant_id={$merchant_id}&password={$truemoney_cashcard}&resp_url={$config_url}tm_check_.php&channel=razer_gold_pin";
+
+			//
+			$curl = curl_init($tmpay_url);
+			curl_setopt($curl, CURLOPT_TIMEOUT, 15);
+			curl_setopt($curl, CURLOPT_HEADER, FALSE);
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+			curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+			$curl_content = curl_exec($curl);
+			curl_close($curl);
+			$t = time();
+			if (strpos($curl_content, 'SUCCEED') !== FALSE) {
+
+				$sql = "INSERT INTO `web_topup` (`id`, `type`, `transaction_id`, `truemoney_card`, `point`, `time`, `status`, `username`, `ip`) VALUES 
+					(NULL, '" . $_POST['topuptype'] . "', '0', '" . $truemoney_cashcard . "', '0', '" . $t . "', '0', '" . $username . "', '0');";
+				$query = $connect->query($sql);
+
+				DisplayMSG('success', 'Success !!!', 'ดำเนินการสำเร็จกรุณารอตรวจสอบ 2-5 นาที', 'true');
+			} else {
+				DisplayMSG('error', 'Error', 'ไม่สามารถเชื่อมต่อได้', 'false');
+			}
+			// } else {
+			// 	DisplayMSG('error', 'Error', 'กรุณายืนยันตัวตนใหม่', 'true');
+			// }
 		}
 
 		//ดูตัวอย่างได้ที่ https://www.tmpay.net/front/TMPAY-Overview_Coding_PHP.pdf

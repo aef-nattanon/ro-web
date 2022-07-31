@@ -90,10 +90,10 @@
                         </div>
 
 
-                        <div class="text-left mt-1"><i class="fas fa-shield-alt"></i> ยืนยันตน</div>
-                        <div class="input-group" style="margin-bottom: 10px; text-align: center;">
-                            <div class="g-recaptcha d-flex align-items-center justify-content-center" style="margin-top: 15px;" data-sitekey="<?php echo SITE_KEY; ?>"></div>
-                        </div>
+                        <!-- <div class="text-left mt-1"><i class="fas fa-shield-alt"></i> ยืนยันตน</div>
+                        <div class="input-group" style="margin-bottom: 10px; text-align: center;"> -->
+                        <!-- <div class="g-recaptcha d-flex align-items-center justify-content-center" style="margin-top: 15px;" data-sitekey="<?php echo SITE_KEY; ?>"></div> -->
+                        <!-- </div> -->
 
                     </div>
                 </div>

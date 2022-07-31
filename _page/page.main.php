@@ -111,7 +111,7 @@ $user = $connect->query("SELECT * FROM login")->num_rows;
 
     <script type="text/javascript" src="assets/frontend/js/menu-dropdown.js"></script>
 
-    <script src='https://www.google.com/recaptcha/api.js?hl=th'></script>
+    <!-- <script src='https://www.google.com/recaptcha/api.js?hl=th'></script> -->
 
 
 

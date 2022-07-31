@@ -169,7 +169,7 @@
                                 <input hidden type="text" id="truemoneytype" name="truemoneytype" value="Truemoney">
                                 <input style="color: #000;" class="form-control" style="height: 40px;" name="truemoneyid" id="truemoneyid" type="text" maxlength="14" placeholder="เลขบัตรเติมเงิน 14 หลัก" required>
                             </div>
-                            <div class="g-recaptcha d-flex align-items-center justify-content-center" style="margin-top: 15px;" data-sitekey="<?php echo SITE_KEY; ?>"></div>
+                            <!-- <div class="g-recaptcha d-flex align-items-center justify-content-center" style="margin-top: 15px;" data-sitekey="<?php echo SITE_KEY; ?>"></div> -->
 
                             <div class="text-left mt-1"></div>
                             <div class="input-group" style="margin-bottom: 10px; text-align: center; margin-top: 2px;">

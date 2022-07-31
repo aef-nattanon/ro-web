@@ -137,7 +137,7 @@ function truemoney() {
 	$.post("control_.php?truemoney", {
 		truemoney_card: $('#truemoneyid').val(),
 		topuptype: $('#truemoneytype').val(),
-		recaptcha: grecaptcha.getResponse(0),
+		// recaptcha: grecaptcha.getResponse(0),
 	}, function (data) {
 		$("#btn").prop("disabled", true);
 		$("#return").html(data);
@@ -158,7 +158,7 @@ function truemoney_vip() {
 			topuptype: $('#truemoneytype').val(),
 			char_id: $("input[name='char_id']").val(), //รหัสตัวละคร
 			vip_type: $("input[name='vip_type']").val(), //ประการการเติมเงิน 7วันหรือ30วัน
-			recaptcha: grecaptcha.getResponse(0),
+			// recaptcha: grecaptcha.getResponse(0),
 		}, function (data) {
 			$("#btn").prop("disabled", true);
 			$("#return").html(data);
@@ -173,7 +173,7 @@ function razergold() {
 	$.post("control_.php?razergold", {
 		truemoney_card: $('#razergoldpin').val(),
 		topuptype: $('#razertype').val(),
-		recaptcha: grecaptcha.getResponse(1),
+		// recaptcha: grecaptcha.getResponse(1),
 	}, function (data) {
 		$("#btn").prop("disabled", true);
 		$("#return").html(data);
@@ -194,7 +194,7 @@ function register() {
 		sD1: $('#sD1').val(),
 		sM1: $('#sM1').val(),
 		sY1: $('#sY1').val(),
-		recaptcha: grecaptcha.getResponse(),
+		// recaptcha: grecaptcha.getResponse(),
 	}, function (data) {
 		$("#btn").prop("disabled", true);
 		$("#return").html(data);

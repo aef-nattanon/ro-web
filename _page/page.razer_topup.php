@@ -73,7 +73,7 @@
                                 <input hidden type="text" id="razertype" name="razertype" value="Razergold">
                                 <input class="form-control" style="height: 40px;" name="razergoldpin" id="razergoldpin" type="text" placeholder="เลขบัตรเติมเงิน 14 หลัก" required>
                             </div>
-                            <div class="g-recaptcha d-flex align-items-center justify-content-center" style="margin-top: 15px;" data-sitekey="<?php echo SITE_KEY; ?>"></div>
+                            <!-- <div class="g-recaptcha d-flex align-items-center justify-content-center" style="margin-top: 15px;" data-sitekey="<?php echo SITE_KEY; ?>"></div> -->
 
                             <div class="text-left mt-1"></div>
                             <div class="input-group" style="margin-bottom: 10px; text-align: center; margin-top: 2px;">
