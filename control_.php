@@ -1,5 +1,4 @@
 <?php
-
 require('config_.php');
 if (isset($_GET['login'])) {
 	if (empty($_POST['username']) || empty($_POST['password'])) {
@@ -45,78 +44,80 @@ if (isset($_GET['login'])) {
 @$userinfo_login = $connect->query('SELECT * FROM login WHERE userid = "' . $_SESSION['username'] . '"')->fetch_assoc();
 
 if (isset($_GET['register'])) {
-	if (empty($_POST['username']) || empty($_POST['password'])) {
-		DisplayMSG('error', 'Error', 'กรุณาอย่าเว้นช่องว่าง.', 'false');
-	}
-	if (empty($_POST['sex'])) {
-		DisplayMSG('error', 'Error', 'กรุณาเลือกเพศ.', 'false');
-	}
-	if (empty($_POST['sD1']) || empty($_POST['sY1']) || empty($_POST['sM1'])) {
-		DisplayMSG('error', 'Error', 'กรุณากรอก วัน/เดือน/ปี เกิด.', 'false');
-	}
-	if (!preg_match('/^[a-zA-Z0-9\_]*$/', $_POST['username'])) {
-		DisplayMSG('error', 'Error', 'ชื่อผู้ใช้ไม่ถูกต้อง ต้องเป็น A-Z 0-9 เท่านั้น !!.', 'false');
-	}
-	if (mb_strlen($_POST['username']) <= 4) {
-		DisplayMSG('error', 'Error', 'ชื่อผู้ใช้อย่างน้อย 5 ตัวขึ้นไป !!', 'false');
-	}
-	if (mb_strlen($_POST['username']) >= 25) {
-		DisplayMSG('error', 'Error', 'ชื่อผู้ใช้สูงสุด 24 ตัวขึ้นไป !!', 'false');
-	}
-	if (strlen($_POST['password']) <= 4) {
-		DisplayMSG('error', 'Error', 'รหัสผ่านอย่างน้อย 5 ตัวขึ้นไป !!', 'false');
-	}
-	if (mb_strlen($_POST['password']) >= 25) {
-		DisplayMSG('error', 'Error', 'รหัสผ่านสูงสุด 24 ตัว !!', 'false');
-	}
-	if ($_POST['password'] != $_POST['repassword']) {
-		DisplayMSG('error', 'Error', 'รหัสผ่าน ไม่ตรงกัน !!', 'false');
-	}
-	// if (empty($_POST['recaptcha'])) {
-	// 	DisplayMSG('error', 'Error', 'กรุณายืนยันตัวตน.', 'false');
+	// if (empty($_POST['username']) || empty($_POST['password'])) {
+	// 	DisplayMSG('error', 'Error', 'กรุณาอย่าเว้นช่องว่าง.', 'false');
 	// }
-	$birthdate = $_POST['sY1'] . "-" . $_POST['sM1'] . "-" . $_POST['sD1'];
-	// $ip = $_SERVER['REMOTE_ADDR'];
-	// $secret = SECRET_KEY;
-	// $captcha = $_POST['recaptcha'];
+	// if (empty($_POST['sex'])) {
+	// 	DisplayMSG('error', 'Error', 'กรุณาเลือกเพศ.', 'false');
+	// }
+	// if (empty($_POST['sD1']) || empty($_POST['sY1']) || empty($_POST['sM1'])) {
+	// 	DisplayMSG('error', 'Error', 'กรุณากรอก วัน/เดือน/ปี เกิด.', 'false');
+	// }
+	// if (!preg_match('/^[a-zA-Z0-9\_]*$/', $_POST['username'])) {
+	// 	DisplayMSG('error', 'Error', 'ชื่อผู้ใช้ไม่ถูกต้อง ต้องเป็น A-Z 0-9 เท่านั้น !!.', 'false');
+	// }
+	// if (mb_strlen($_POST['username']) <= 4) {
+	// 	DisplayMSG('error', 'Error', 'ชื่อผู้ใช้อย่างน้อย 5 ตัวขึ้นไป !!', 'false');
+	// }
+	// if (mb_strlen($_POST['username']) >= 25) {
+	// 	DisplayMSG('error', 'Error', 'ชื่อผู้ใช้สูงสุด 24 ตัวขึ้นไป !!', 'false');
+	// }
+	// if (strlen($_POST['password']) <= 4) {
+	// 	DisplayMSG('error', 'Error', 'รหัสผ่านอย่างน้อย 5 ตัวขึ้นไป !!', 'false');
+	// }
+	// if (mb_strlen($_POST['password']) >= 25) {
+	// 	DisplayMSG('error', 'Error', 'รหัสผ่านสูงสุด 24 ตัว !!', 'false');
+	// }
+	// if ($_POST['password'] != $_POST['repassword']) {
+	// 	DisplayMSG('error', 'Error', 'รหัสผ่าน ไม่ตรงกัน !!', 'false');
+	// }
+	// // if (empty($_POST['recaptcha'])) {
+	// // 	DisplayMSG('error', 'Error', 'กรุณายืนยันตัวตน.', 'false');
+	// // }
+	// $birthdate = $_POST['sY1'] . "-" . $_POST['sM1'] . "-" . $_POST['sD1'];
+	// // $ip = $_SERVER['REMOTE_ADDR'];
+	// // $secret = SECRET_KEY;
+	// // $captcha = $_POST['recaptcha'];
 
-	// $stream_opts = [
-	// 	"ssl" => [
-	// 		"verify_peer" => false,
-	// 		"verify_peer_name" => false,
-	// 	]
-	// ];
+	// // $stream_opts = [
+	// // 	"ssl" => [
+	// // 		"verify_peer" => false,
+	// // 		"verify_peer_name" => false,
+	// // 	]
+	// // ];
 
-	// $gRecaptchaResponse = $captcha;
-	// $remoteIp = $ip;
-	// $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$gRecaptchaResponse&remoteip=$remoteIp";
-	// $response = file_get_contents($url, false, stream_context_create($stream_opts));
-	// $result = json_decode($response);
-	// if ($result->success) {
-	$username = $connect->real_escape_string($_POST['username']);
-	$password = $_POST['password'];
-	$query = $connect->query('SELECT * FROM login WHERE userid = "' . $username . '" ');
-	$username_check = $query->num_rows;
-	if ($username_check >= 1) {
-		DisplayMSG('error', 'Error', ' มีผู้ใช้งานไปแล้ว !!!', 'false');
-	} else {
-		// $query = $connect->query
-		// ('
-		// 	INSERT INTO `user` (`id`, `username`, `password`, `ip`, `point`, `ban`, `rank`) VALUES 
-		// 	(NULL, "'.$username.'", "'.$password.'", "'.$_SERVER['REMOTE_ADDR'].'", "0", "false", "Member");
-		// ');
-		$query = $connect->query('INSERT INTO login (account_id, userid, user_pass, sex, email, group_id, state, birthdate) 
-			VALUES (NULL, "' . $username . '", "' . $password . '", "' . $_POST['sex'] . '", "' . $_POST['email'] . '", "0", "0", "' . $birthdate . '"); ');
+	// // $gRecaptchaResponse = $captcha;
+	// // $remoteIp = $ip;
+	// // $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$gRecaptchaResponse&remoteip=$remoteIp";
+	// // $response = file_get_contents($url, false, stream_context_create($stream_opts));
+	// // $result = json_decode($response);
+	// // if ($result->success) {
+	// $username = $connect->real_escape_string($_POST['username']);
+	// $password = $_POST['password'];
+	// $query = $connect->query('SELECT * FROM login WHERE userid = "' . $username . '" ');
+	// $username_check = $query->num_rows;
+	// if ($username_check >= 1) {
+	// 	DisplayMSG('error', 'Error', ' มีผู้ใช้งานไปแล้ว !!!', 'false');
+	// } else {
+	// 	// $query = $connect->query
+	// 	// ('
+	// 	// 	INSERT INTO `user` (`id`, `username`, `password`, `ip`, `point`, `ban`, `rank`) VALUES 
+	// 	// 	(NULL, "'.$username.'", "'.$password.'", "'.$_SERVER['REMOTE_ADDR'].'", "0", "false", "Member");
+	// 	// ');
+	// 	$query = $connect->query('INSERT INTO login (account_id, userid, user_pass, sex, email, group_id, state, birthdate) 
+	// 		VALUES (NULL, "' . $username . '", "' . $password . '", "' . $_POST['sex'] . '", "' . $_POST['email'] . '", "0", "0", "' . $birthdate . '"); ');
 
-		if ($query) {
-			DisplayMSG('success', 'Register Success !!!', 'สมัครสมาชิกสำเร็จ !!!..', 'true');
-		} else {
-			DisplayMSG('error', 'Error', ' สมัครสมาชิกไม่สำเร็จ !!!', 'false');
-		}
-	}
+	// 	if ($query) {
+	// 		DisplayMSG('success', 'Register Success !!!', 'สมัครสมาชิกสำเร็จ !!!..', 'true');
+	// 	} else {
+	// 		DisplayMSG('error', 'Error', ' สมัครสมาชิกไม่สำเร็จ !!!', 'false');
+	// 	}
+	// }
 	// } else {
 	// 	DisplayMSG('error', 'Are you a rebot!!', 'กรุณายืนยันตัวตนก่อน!!.', 'true');
 	// }
+
+	DisplayMSG('success', 'Register Success !!!', 'สมัครสมาชิกสำเร็จ !!!..', 'true');
 }
 
 
