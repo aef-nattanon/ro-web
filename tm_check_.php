@@ -9,47 +9,39 @@ if (isset($_GET['transaction_id']) && isset($_GET['password']) && isset($_GET['r
 	$password = $_GET['password'];
 	$amount = $_GET['real_amount'];
 	$status = $_GET['status'];
+	$bonus = 2;
 
 	$query_tmt = $connect->query("SELECT * FROM web_topup WHERE truemoney_card = '" . $password . "';");
 	$tmtopup = $query_tmt->fetch_assoc();
 
 	if ($tmtopup['type'] == "Truemoney") {
 
-		if ($amount == 50) {
-			$samount = 50 * 5;
-		} else if ($amount == 90) {
-			$samount = 90 * 5;
-		} else if ($amount == 150) {
-			$samount = 150 * 5;
-		} else if ($amount == 300) {
-			$samount = 300 * 5;
-		} else if ($amount == 500) {
-			$samount = 500 * 5;
-		} else if ($amount == 1000) {
-			$samount = 1000 * 5;
+		if ($amount > 0) {
+			$samount = $amount;
 		} else {
 			$samount = 0;
 		}
 	} else if ($tmtopup['type'] == "Razergold") {
 		if ($amount == 50) {
-			$samount = 40 * 5;
+			$samount = 40;
 		} else if ($amount == 100) {
-			$samount = 100 * 5;
+			$samount = 100;
 		} else if ($amount == 300) {
-			$samount = 300 * 5;
+			$samount = 300;
 		} else if ($amount == 500) {
-			$samount = 500 * 5;
+			$samount = 500;
 		} else if ($amount == 1000) {
-			$samount = 1200 * 5;
+			$samount = 1200;
 		} else if ($amount == 3500) {
-			$samount = 3700 * 5;
+			$samount = 3700;
 		} else if ($amount == 5000) {
-			$samount = 5500 * 5;
+			$samount = 5500;
 		} else {
 			$samount = 0;
 		}
 	}
 
+	$samount = $samount * 5 * $bonus;
 	if ($status == 1) {
 		/* เติมเงินสำเร็จ */
 

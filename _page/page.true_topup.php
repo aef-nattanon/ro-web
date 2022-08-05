@@ -26,27 +26,27 @@
                                 <tbody>
                                     <tr align="center">
                                         <td>50</td>
-                                        <td>250</td>
+                                        <td>250 *(2 bonus) = 500</td>
                                     </tr>
                                     <tr align="center">
                                         <td>90</td>
-                                        <td>450</td>
+                                        <td>450 *(2 bonus) = 900</td>
                                     </tr>
                                     <tr align="center">
                                         <td>150</td>
-                                        <td>750</td>
+                                        <td>750 *(2 bonus) = 1,500</td>
                                     </tr>
                                     <tr align="center">
                                         <td>300</td>
-                                        <td>1,500</td>
+                                        <td>1,500 *(2 bonus) = 3,000</td>
                                     </tr>
                                     <tr align="center">
                                         <td>500</td>
-                                        <td>2,500</td>
+                                        <td>2,500 *(2 bonus) = 5,000</td>
                                     </tr>
                                     <tr align="center">
                                         <td>1,000</td>
-                                        <td>5,000</td>
+                                        <td>5,000 *(2 bonus) = 10,000</td>
                                     </tr>
                                 </tbody>
                             </table>

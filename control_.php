@@ -203,9 +203,9 @@ if (isset($_SESSION['username'])) {
 		if (empty($_POST['truemoney_card'])) {
 			DisplayMSG('error', 'Error', 'ต้องกรอกรหัสบัตรเงินสดทรูมันนี่ (14 หลัก)', 'false');
 		} else {
-			if (empty($_POST['recaptcha'])) {
-				DisplayMSG('error', 'Error', 'กรุณายืนยันตัวตน.', 'false');
-			}
+			// if (empty($_POST['recaptcha'])) {
+			// 	DisplayMSG('error', 'Error', 'กรุณายืนยันตัวตน.', 'false');
+			// }
 
 			// $secretKey = SECRET_KEY;
 			// $captcha = $_POST['recaptcha'];

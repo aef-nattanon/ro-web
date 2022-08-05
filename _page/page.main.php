@@ -251,7 +251,7 @@ $user = $connect->query("SELECT * FROM login")->num_rows;
                         <li><a href="?yak=donate" class="nav-link"><i class="fafa-dollar-sign"></i> โดเนทเซิฟเวอร์</a></li>
                         <!-- <li><a href="?yak=boss" class="nav-link" ><i class="fafa-money-alt"></i> ข้อมูลบอส</a></li> -->
                         <li><a href="?yak=wordmap" class="nav-link"><i class="fafa-map-marked"></i> ข้อมูลแมพ</a></li>
-                        <li><a href="" class="nav-link"><i class="fafa-user-edit"></i> ข้อมูลผู้เล่น</a></li>
+                        <!-- <li><a href="" class="nav-link"><i class="fafa-user-edit"></i> ข้อมูลผู้เล่น</a></li> -->
                         <li><a href="?yak=download" class="nav-link"><i class="fafa-download"></i> ดาวน์โหลด</a></li>
                         <li><a href="?yak=admin" class="nav-link"><i class="fafa-comments"></i> ติดต่อแอดมิน</a></li>
                         <?php
