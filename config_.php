@@ -10,10 +10,10 @@ $merchant_id = 'TEST'; // รหัสร้านค้า TMPAY WI22041118
 $config_url = 'www.ro-yak.online/'; // URL เว็บ รอ tmpay ตอบกลับข้อมูลที่ส่งกลับมายัง ตัวอย่าง http://127.0.0.1/tmpay/tmpay_result.php
 
 
-$db_host = 'www.ro-yak.online';
-// $db_host = 'localhost';
-$db_user = 'develop';
-$db_pass = 'develop123';
+// $db_host = 'www.ro-yak.online';
+$db_host = 'localhost';
+$db_user = 'rathena4444';
+$db_pass = 'secretpassword';
 $db_name = 'rathena4444_rag';
 
 
