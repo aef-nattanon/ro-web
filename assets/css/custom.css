@@ -78,6 +78,11 @@
   } */
 }
 
+.description {
+  font-size: 10px;
+  color: rgb(78, 78, 78) !important;
+}
+
 /* ---- reset ---- */
 body {
   margin: 0;

@@ -15,7 +15,7 @@
                 <!-- <div class="col-md-4"><img src="assets/upload/obj-middlecontent-left.png" alt=""></div> -->
                 <div class="col-md-12 ml-auto" style="margin-bottom: 10px; padding: 50px;">
                     <div class="card" style="padding: 10px; border-radius: 9px;">
-                        <div class="text-left mt-1"><i class="fa fa-angle-right"></i> ชื่อผู้ใช้</div>
+                        <div class="text-left mt-1"><i class="fa fa-angle-right"></i> ชื่อผู้ใช้ <span class="description"><i class="fa fa-info-circle"></i> ต้องเป็น A-Z a-z 0-9 และมีตัวอักษรอย่างน้อย 5 เเต่ไม่เกิน 25 ตัว</span></div>
                         <div class="input-group" style="margin-bottom: 10px;">
                             <input class="form-control" style="height: 40px;color: #000;" name="username" id="username" type="username" placeholder="Username" required>
                         </div>
@@ -23,11 +23,11 @@
                         <div class="input-group" style="margin-bottom: 10px;">
                             <input class="form-control" style="height: 40px;color: #000;" name="email" id="email" type="email" placeholder="E - mail" required>
                         </div>
-                        <div class="text-left mt-1"><i class="fa fa-angle-right"></i> รหัสผ่าน</div>
+                        <div class="text-left mt-1"><i class="fa fa-angle-right"></i> รหัสผ่าน <span class="description"><i class="fa fa-info-circle"></i> มีตัวอักษรอย่างน้อย 5 เเต่ไม่เกิน 25 ตัว</span></div>
                         <div class="input-group">
                             <input class="form-control" style="height: 40px;color: #000;" name="password" id="password" type="password" placeholder="Password" required>
                         </div>
-                        <div class="text-left mt-1"><i class="fa fa-angle-right"></i> รหัสผ่าน อีกครั้ง</div>
+                        <div class="text-left mt-1"><i class="fa fa-angle-right"></i> รหัสผ่าน อีกครั้ง <span class="description"><i class="fa fa-info-circle"></i> ต้องเหมือน รหัสผ่าน</span></div>
                         <div class="input-group" style="margin-bottom: 10px;">
                             <input class="form-control" style="height: 40px;color: #000;" name="repassword" id="repassword" type="password" placeholder="Password Confirm" required="">
                         </div>

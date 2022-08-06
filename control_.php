@@ -55,7 +55,7 @@ if (isset($_GET['register'])) {
 		DisplayMSG('error', 'Error', 'กรุณากรอก วัน/เดือน/ปี เกิด.', 'false');
 	}
 	if (!preg_match('/^[a-zA-Z0-9\_]*$/', $_POST['username'])) {
-		DisplayMSG('error', 'Error', 'ชื่อผู้ใช้ไม่ถูกต้อง ต้องเป็น A-Z 0-9 เท่านั้น !!.', 'false');
+		DisplayMSG('error', 'Error', 'ชื่อผู้ใช้ไม่ถูกต้อง ต้องเป็น A-Z a-z 0-9 เท่านั้น !!.', 'false');
 	}
 	if (mb_strlen($_POST['username']) <= 4) {
 		DisplayMSG('error', 'Error', 'ชื่อผู้ใช้อย่างน้อย 5 ตัวขึ้นไป !!', 'false');
