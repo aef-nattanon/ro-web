@@ -5,7 +5,7 @@ date_default_timezone_set("Asia/Bangkok");
 // define('SITE_KEY', '6LcHspofAAAAABbKRWLHKitOQAEkmiyzCX0GG2jK');
 // define('SECRET_KEY', '6LcHspofAAAAAJEOGDqwxJcIC0YpfhSMTVfgy_kx');
 
-$merchant_id = 'WI22041118'; // รหัสร้านค้า TMPAY WI22041118  
+$merchant_id = 'TEST'; // รหัสร้านค้า TMPAY WI22041118  
 //สามารถรับพารามิเตอร์จากข้างนิกได้ เช่น ลงโฮมจริง หรือไม่ก็ ฟอร์เวอร์พอต
 $config_url = 'www.ro-yak.online/'; // URL เว็บ รอ tmpay ตอบกลับข้อมูลที่ส่งกลับมายัง ตัวอย่าง http://127.0.0.1/tmpay/tmpay_result.php
 
