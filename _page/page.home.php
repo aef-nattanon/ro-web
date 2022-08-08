@@ -193,7 +193,7 @@
                         </div>
                     </div>
 
-                    <!-- <div class="card" style="padding: 10px; margin-top: 10px; background: rgba(0, 87, 0, 1); border-radius: 9px;">
+                    <div class="card" style="padding: 10px; margin-top: 10px; background: rgba(0, 87, 0, 1); border-radius: 9px;">
                         <div class="card" style="padding: 10px; border-radius: 9px;">
                             <img class="d-block w-100 hvr-bubble-float-left" style="margin-top: -45px;" src="assets/upload/pvp-ranking.png" alt="Second slide">
 
@@ -227,7 +227,7 @@
                             </div>
 
                         </div>
-                    </div> -->
+                    </div>
                     <br />
                     <p>
                     <div id="fb-root"></div>
