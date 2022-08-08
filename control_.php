@@ -179,7 +179,7 @@ if (isset($_SESSION['username'])) {
 
 				DisplayMSG('success', 'Success !!!', 'ดำเนินการสำเร็จกรุณารอตรวจสอบ 2-5 นาที', 'true');
 			} else {
-				DisplayMSG('error', 'Error', 'ไม่สามารถเชื่อมต่อได้', 'false');
+				DisplayMSG('error', 'Error', json_encode($curl_content), 'false');
 			}
 			// } else {
 			// 	DisplayMSG('error', 'Error', 'กรุณายืนยันตัวตนใหม่', 'true');
