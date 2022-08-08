@@ -160,7 +160,7 @@ if (isset($_SESSION['username'])) {
 			$truemoney_cashcard = $_POST['truemoney_card']; // รหัสบัตรเงินสดทรูมันนี่ (14 หลัก)
 			$char_id = $_POST['char_id'];
 			$vip_type = $_POST['vip_type'];
-			$tmpay_url = "https://www.tmpay.net/TPG/backend.php?merchant_id={$merchant_id}&password={$truemoney_cashcard}&resp_url={$config_url}tm_check_vip.php";
+			$tmpay_url = "https://www.tmpay.net/TPG/backend.php?merchant_id={$merchant_id}&password={$truemoney_cashcard}&resp_url=http://{$config_url}tm_check_vip.php";
 
 			//
 			$curl = curl_init($tmpay_url);
@@ -224,7 +224,7 @@ if (isset($_SESSION['username'])) {
 			}
 
 			$truemoney_cashcard = $_POST['truemoney_card']; // รหัสบัตรเงินสดทรูมันนี่ (14 หลัก)
-			$tmpay_url = "https://www.tmpay.net/TPG/backend.php?merchant_id={$merchant_id}&password={$truemoney_cashcard}&resp_url={$config_url}tm_check_.php";
+			$tmpay_url = "https://www.tmpay.net/TPG/backend.php?merchant_id={$merchant_id}&password={$truemoney_cashcard}&resp_url=http://{$config_url}tm_check_.php";
 
 			//
 			$curl = curl_init($tmpay_url);
@@ -289,7 +289,7 @@ if (isset($_SESSION['username'])) {
 			}
 
 			$truemoney_cashcard = $_POST['truemoney_card']; // รหัสบัตรเงินสดทรูมันนี่ (14 หลัก)
-			$tmpay_url = "https://www.tmpay.net/TPG/backend.php?merchant_id={$merchant_id}&password={$truemoney_cashcard}&resp_url={$config_url}tm_check_.php&channel=razer_gold_pin";
+			$tmpay_url = "https://www.tmpay.net/TPG/backend.php?merchant_id={$merchant_id}&password={$truemoney_cashcard}&resp_url=http://{$config_url}tm_check_.php&channel=razer_gold_pin";
 
 			//
 			$curl = curl_init($tmpay_url);
