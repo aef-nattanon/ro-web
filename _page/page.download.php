@@ -64,7 +64,7 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <a href="https://drive.google.com/u/0/uc?id=15FgktfMdTwgjG80ie3OdR5jXIU4khTPH&export=download" target="_blank" class="bg-none">
+                                            <a href="https://drive.google.com/file/d/1S4KMn8Noh7yC2vR63ePhEruZVluIsJgI/view?usp=sharing" target="_blank" class="bg-none">
                                                 <!-- <a href="https://drive.google.com/file/d/1TU5-upb88gAKCwRiTgkS77j4UrVSta7i/view?usp=sharing" target="_blank" class="bg-none"> -->
                                                 <img src="assets/upload/menu/btn-download-client.png" alt="My Host" class="img-fluid">
                                             </a>
@@ -78,7 +78,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="https://drive.google.com/u/4/uc?id=1fpo5nrnvaB4t8sg3V6DZl3h2a7mdv78O&export=download" target="_blank" class="bg-none">
+                                            <a href="https://drive.google.com/u/0/uc?id=1hmt437-WzadPfhffIW7XNRAd0IC5zrLL&export=download" target="_blank" class="bg-none">
                                                 <!-- <a href="https://www.mediafire.com/file/4ylazrhgw0xuh7l/AU-RO-Ragnarok-Classic-Ep4.0-Gepard3.0_11022565.rar/file" target="_blank" class="bg-none"> -->
                                                 <img src="assets/upload/menu/btn-download-client.png" alt="Google Drive" class="img-fluid">
                                             </a>
