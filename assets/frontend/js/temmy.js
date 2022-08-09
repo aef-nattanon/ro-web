@@ -147,8 +147,8 @@ function truemoney() {
 }
 
 function truemoney_vip() {
-	var ck = document.querySelectorAll('input[type="radio"]:checked').length;
-	if (ck < 2) {
+	var ck = document.querySelectorAll('input[type="radio"]:checked');
+	if (ck.length < 2) {
 		alert("กรุณาเลือกตัวละคร และ VIP ที่ต้องการเติม ");
 	} else {
 
@@ -156,8 +156,8 @@ function truemoney_vip() {
 		$.post("control_.php?truemoney-vip", {
 			truemoney_card: $('#truemoneyid').val(),
 			topuptype: $('#truemoneytype').val(),
-			char_id: $("input[name='char_id']").val(), //รหัสตัวละคร
-			vip_type: $("input[name='vip_type']").val(), //ประการการเติมเงิน 7วันหรือ30วัน
+			char_id: ck[0].value, //รหัสตัวละคร
+			vip_type: ck[1].value, //ประการการเติมเงิน 7วันหรือ30วัน
 			// recaptcha: grecaptcha.getResponse(0),
 		}, function (data) {
 			$("#btn").prop("disabled", true);
