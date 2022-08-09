@@ -57,13 +57,13 @@ if (isset($_GET['register'])) {
 	if (!preg_match('/^[a-zA-Z0-9\_]*$/', $_POST['username'])) {
 		DisplayMSG('error', 'Error', 'ชื่อผู้ใช้ไม่ถูกต้อง ต้องเป็น A-Z a-z 0-9 เท่านั้น !!.', 'false');
 	}
-	if (mb_strlen($_POST['username']) <= 6) {
+	if (mb_strlen($_POST['username']) < 6) {
 		DisplayMSG('error', 'Error', 'ชื่อผู้ใช้อย่างน้อย 6 ตัวขึ้นไป !!', 'false');
 	}
 	if (mb_strlen($_POST['username']) >= 25) {
 		DisplayMSG('error', 'Error', 'ชื่อผู้ใช้สูงสุด 24 ตัวขึ้นไป !!', 'false');
 	}
-	if (strlen($_POST['password']) <= 6) {
+	if (strlen($_POST['password']) < 6) {
 		DisplayMSG('error', 'Error', 'รหัสผ่านอย่างน้อย 6 ตัวขึ้นไป !!', 'false');
 	}
 	if (mb_strlen($_POST['password']) >= 25) {
