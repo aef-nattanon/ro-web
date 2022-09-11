@@ -16,9 +16,9 @@ if (isset($_GET['transaction_id']) && isset($_GET['password']) && isset($_GET['r
   $query_tmt = $connect->query("SELECT * FROM web_topup WHERE truemoney_card = '" . $password . "';");
   $tmtopup = $query_tmt->fetch_assoc();
 
-  if ($amount == 100) {
+  if ($amount == 150) {
     $vip_id = $vip_15_day_id;
-    $day = 7;
+    $day = 15;
   } else if ($amount == 300) {
     $vip_id = $vip_30_day_id;
     $day = 30;

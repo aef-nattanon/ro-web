@@ -14,7 +14,7 @@ $config_url = 'www.ro-yak.online/'; // URL เว็บ รอ tmpay ตอบ�
 $db_host = 'localhost';
 $db_user = 'rathena4444';
 $db_pass = 'secretpassword';
-$db_name = 'yak_rag';
+$db_name = 'yak_rag_opt';
 
 
 /// DON'T EDIT ==> 

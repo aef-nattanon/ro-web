@@ -15,30 +15,9 @@ if (isset($_GET['transaction_id']) && isset($_GET['password']) && isset($_GET['r
 	$tmtopup = $query_tmt->fetch_assoc();
 
 	if ($tmtopup['type'] == "Truemoney") {
-
-		if ($amount > 0) {
-			$samount = $amount;
-		} else {
-			$samount = 0;
-		}
+		$samount = $amount;
 	} else if ($tmtopup['type'] == "Razergold") {
-		if ($amount == 50) {
-			$samount = 40;
-		} else if ($amount == 100) {
-			$samount = 100;
-		} else if ($amount == 300) {
-			$samount = 300;
-		} else if ($amount == 500) {
-			$samount = 500;
-		} else if ($amount == 1000) {
-			$samount = 1200;
-		} else if ($amount == 3500) {
-			$samount = 3700;
-		} else if ($amount == 5000) {
-			$samount = 5500;
-		} else {
-			$samount = 0;
-		}
+		$samount = 0;
 	}
 
 	$samount = $samount * 5 * $bonus;
@@ -47,13 +26,13 @@ if (isset($_GET['transaction_id']) && isset($_GET['password']) && isset($_GET['r
 
 		$chk_topup = $connect->query('SELECT * FROM login WHERE userid = "' . $tmtopup['username'] . '"')->fetch_assoc();
 
-		$query_check = $connect->query('SELECT * FROM acc_reg_num WHERE account_id = "' . $chk_topup['account_id'] . '"; ');
+		$query_check = $connect->query('SELECT * FROM acc_reg_num WHERE `acc_reg_num`.`key` = "#CASHPOINTS" and account_id = "' . $chk_topup['account_id'] . '"; ');
 		$topup_check = $query_check->num_rows;
 
 		if ($topup_check == 1) { // update
-			$query_add_point = $connect->query("UPDATE `acc_reg_num` SET `value` = value + '{$samount}' WHERE `acc_reg_num`.`account_id` = '" . $chk_topup['account_id'] . "';");
+			$query_add_point = $connect->query("UPDATE `acc_reg_num` SET `value` = value + '{$samount}' WHERE `acc_reg_num`.`key` = '#CASHPOINTS' AND `acc_reg_num`.`account_id` = '" . $chk_topup['account_id'] . "';");
 		} else {
-			$query_add_point = $connect->query("INSERT INTO `acc_reg_num` (`account_id`, `key`, `index`, `value`, `time`) VALUES ('" . $chk_topup['account_id'] . "', '#CASHPOINTS', '0', '{$samount}', '" . (new DateTime())->getTimestamp() . "');");
+			$query_add_point = $connect->query("INSERT INTO `acc_reg_num` (`account_id`, `key`, `index`, `value`) VALUES ('" . $chk_topup['account_id'] . "', '#CASHPOINTS', '0', '{$samount}');");
 		}
 
 
@@ -63,7 +42,7 @@ if (isset($_GET['transaction_id']) && isset($_GET['password']) && isset($_GET['r
 		$query = $connect->query($sql);
 
 
-		die('SUCCEED|TOPPED_UP_THB_' . $amount . '_TO_ ' . $tmtopup['username']);
+		die($topup_check . 'SUCCEED|TOPPED_UP_THB_' . $amount . '_TO_ ' . $tmtopup['username']);
 	} else {
 		/* ไม่สามารถเติมเงินได้ */
 		$sql = "UPDATE `web_topup` SET `transaction_id` = '{$transaction_id}', `status` = '{$status}', `ip` = '{$_SERVER['REMOTE_ADDR']}' 

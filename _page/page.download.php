@@ -64,7 +64,7 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <a href="https://drive.google.com/file/d/1S4KMn8Noh7yC2vR63ePhEruZVluIsJgI/view?usp=sharing" target="_blank" class="bg-none">
+                                            <a href="https://drive.google.com/file/d/1uCyJrgAddYqR0z74kPedbvDr4m4Evqq7/view?usp=sharing" target="_blank" class="bg-none">
                                                 <!-- <a href="https://drive.google.com/file/d/1TU5-upb88gAKCwRiTgkS77j4UrVSta7i/view?usp=sharing" target="_blank" class="bg-none"> -->
                                                 <img src="assets/upload/menu/btn-download-client.png" alt="My Host" class="img-fluid">
                                             </a>
@@ -78,13 +78,27 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="https://drive.google.com/u/0/uc?id=1hmt437-WzadPfhffIW7XNRAd0IC5zrLL&export=download" target="_blank" class="bg-none">
+                                            <a href="https://drive.google.com/file/d/184-gi9Fx9krL67thwnb-OzLGaaAhCSY5/view?usp=sharing" target="_blank" class="bg-none">
                                                 <!-- <a href="https://www.mediafire.com/file/4ylazrhgw0xuh7l/AU-RO-Ragnarok-Classic-Ep4.0-Gepard3.0_11022565.rar/file" target="_blank" class="bg-none"> -->
                                                 <img src="assets/upload/menu/btn-download-client.png" alt="Google Drive" class="img-fluid">
                                             </a>
                                         </td>
                                         <td>
-                                            <legend>LINK 1 <span class="text-blue">Drive คลิกปุ่มสีฟ้า 2 ครั้ง</span>
+                                            <legend>LINK 2 <span class="text-blue">Drive คลิกปุ่มสีฟ้า 2 ครั้ง</span>
+                                            </legend>
+                                            <p class="mb-0 p-0">ขนาดไฟล์: <b class="text-primary">3.6Gb</b></p>
+                                            <p class="m-0 p-0">UPDATE: <b class="text-primary"><?php echo th_s(time()); ?></b></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="https://drive.google.com/file/d/1IHY52r3YC9rWL97Z8lIFho00cYn3rYTx/view?usp=sharing" target="_blank" class="bg-none">
+                                                <!-- <a href="https://www.mediafire.com/file/4ylazrhgw0xuh7l/AU-RO-Ragnarok-Classic-Ep4.0-Gepard3.0_11022565.rar/file" target="_blank" class="bg-none"> -->
+                                                <img src="assets/upload/menu/btn-download-client.png" alt="Google Drive" class="img-fluid">
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <legend>LINK 3 <span class="text-blue">Drive คลิกปุ่มสีฟ้า 2 ครั้ง</span>
                                             </legend>
                                             <p class="mb-0 p-0">ขนาดไฟล์: <b class="text-primary">3.6Gb</b></p>
                                             <p class="m-0 p-0">UPDATE: <b class="text-primary"><?php echo th_s(time()); ?></b></p>

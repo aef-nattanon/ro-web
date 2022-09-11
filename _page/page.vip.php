@@ -144,8 +144,8 @@
                                 <hr>
                                 <div class="form-head">เลือก VIP </div>
                                 <div class="inputGroup">
-                                    <input id="radio3" name="vip_type" type="radio" value="7" required />
-                                    <label for="radio3">VIP 7 วัน 100 บาท</label>
+                                    <input id="radio3" name="vip_type" type="radio" value="15" required />
+                                    <label for="radio3">VIP 15 วัน 150 บาท</label>
                                 </div>
                                 <div class="inputGroup">
                                     <input id="radio4" name="vip_type" type="radio" value="30" />
