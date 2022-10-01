@@ -123,7 +123,7 @@
                             <div class="col-sm-6">
                                 <div class="card card-vip">
                                     <div class="card-body">
-                                        <a href="?yak=truetopup">
+                                        <a href="?yak=promptpay">
                                             <img src="assets/images/donate-2.png" alt="Donate-logo" width="100%">
                                         </a>
                                     </div>
@@ -132,7 +132,7 @@
                             <div class="col-sm-6">
                                 <div class="card card-vip">
                                     <div class="card-body">
-                                        <a href="?yak=vip">
+                                        <a href="?yak=promptpay_vip">
                                             <img src="assets/images/donate-1.png" alt="Donate-logo" width="100%">
                                         </a>
                                     </div>

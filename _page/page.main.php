@@ -113,7 +113,7 @@ $user = $connect->query("SELECT * FROM login")->num_rows;
 
     <!-- <script src='https://www.google.com/recaptcha/api.js?hl=th'></script> -->
 
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
 
     <!-- costom -->
     <!-- <link rel="stylesheet" href="assets/frontend/css/menu-dropdown.css" /> -->
@@ -340,6 +340,10 @@ $user = $connect->query("SELECT * FROM login")->num_rows;
         include "_page/page.vip.php";
     } else if (@$_GET['yak'] == "donate") {
         include "_page/page.donate.php";
+    } else if (@$_GET['yak'] == "promptpay") {
+        include "_page/page.scan_pay.php";
+    } else if (@$_GET['yak'] == "promptpay_vip") {
+        include "_page/page.scan_pay_vip.php";
     } else {
         include "_page/page.home.php";
     }
@@ -541,6 +545,7 @@ $user = $connect->query("SELECT * FROM login")->num_rows;
     <script src="assets/js/custom.js"></script>
     <!-- END: Scripts -->
 
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
 
     <!-- Your SDK code -->
     <!-- Messenger ปลั๊กอินแชท Code -->
@@ -551,6 +556,10 @@ $user = $connect->query("SELECT * FROM login")->num_rows;
     </div>
 
     <script>
+        var modelAlert = document.getElementById("myModalAlt");
+        if (modelAlert) {
+            $('#myModalAlt').modal('show')
+        }
         var chatbox = document.getElementById('fb-customer-chat');
         chatbox.setAttribute("page_id", "112139181469752");
         chatbox.setAttribute("attribution", "biz_inbox");
