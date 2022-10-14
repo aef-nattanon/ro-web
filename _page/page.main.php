@@ -115,6 +115,7 @@ $user = $connect->query("SELECT * FROM login")->num_rows;
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
 
+
     <!-- costom -->
     <!-- <link rel="stylesheet" href="assets/frontend/css/menu-dropdown.css" /> -->
     <!-- <link rel="stylesheet" href="assets/frontend/css/style.css" /> -->
@@ -544,8 +545,8 @@ $user = $connect->query("SELECT * FROM login")->num_rows;
     <script src="assets/js/goodgames-init.js"></script>
     <script src="assets/js/custom.js"></script>
     <!-- END: Scripts -->
-
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
 
     <!-- Your SDK code -->
     <!-- Messenger ปลั๊กอินแชท Code -->

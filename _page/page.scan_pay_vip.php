@@ -139,17 +139,18 @@ $ip = getIPAddress();
                             <a href="http://www.ro-yak.online/fileupload/member-vip.jpg" target="_blank"><img src="fileupload/member-vip.jpg" style="width: 100%;"></a>
                         </div>
                         <br><br>
-                        <div class="row">
+
+                        <?php
+                        if (!empty($_SESSION['username'])) {
+                        ?>
+                            <div class="row">
 
 
-                            <form id="gbprimepay" action="https://api.gbprimepay.com/gbp/gateway/qrcode/" method="POST" class="login100-form validate-form" style="width:100%;" target="Popup_Window">
+                                <form id="gbprimepay" action="https://api.gbprimepay.com/gbp/gateway/qrcode/" method="POST" class="login100-form validate-form" style="width:100%;" target="Popup_Window">
 
-                                <div class="form-head">เลือกตัวละคร</div>
+                                    <div class="form-head">เลือกตัวละคร</div>
 
-                                <?php
-                                if (!empty($_SESSION['username'])) {
 
-                                ?>
 
                                     <input type="hidden" name="detail" value="DonateVip">
                                     <input type="hidden" name="customerName" value="<?php echo $_SESSION['username'] ?>">
@@ -176,54 +177,40 @@ $ip = getIPAddress();
 
                                     <?php
                                     }
-                                } else {
                                     ?>
 
-                                    <div class="alert alert-danger" role="alert">
-                                        <legend style="color: #000;">Please Login!!</legend>
-                                        <p>กรุณาเข้าสู่ระบบเพื่อทำการเติมเงิน</p>
+                                    <hr>
+
+                                    <div class="form-head">เลือก MEMBER </div>
+
+                                    <div class="inputGroup">
+                                        <input id="radio3" name="amount" type="radio" value="150" />
+                                        <label for="radio3">MEMBER 15 วัน 150 บาท</label>
+                                    </div>
+                                    <div class="inputGroup">
+                                        <input id="radio4" name="amount" type="radio" value="300" checked />
+                                        <label for="radio4">MEMBER 30 วัน 300 บาท</label>
                                     </div>
 
-                                <?php
-                                }
-                                ?>
 
-                                <hr>
+                                    <br>
 
-                                <div class="form-head">เลือก MEMBER </div>
-                              
-                                <div class="inputGroup">
-                                    <input id="radio3" name="amount" type="radio" value="150" />
-                                    <label for="radio3">MEMBER 15 วัน 150 บาท</label>
-                                </div>
-                                <div class="inputGroup">
-                                    <input id="radio4" name="amount" type="radio" value="300" checked />
-                                    <label for="radio4">MEMBER 30 วัน 300 บาท</label>
-                                </div>
+                                    <div class="text-center text-danger mb-5">
+                                        เมื่อกดปุ่มเติมเงินจะปรากฏหน้า QR CODE ให้สแกนชำระเงินได้เลยจากนั้น *รีเฟรชหน้านี้อีกรอบเพื่อครวจสอบสถานะ
+                                    </div>
+
+                                    <div class="input-group mb-5">
+                                        <button type="submit" class="btn btn-success" style="width: 100%;"><i class="fa fa-money"></i> เติมเงิน</button>
+                                    </div>
+
+                                </form>
 
 
-                                <br>
-
-                                <div class="text-center text-danger mb-5">
-                                    เมื่อกดปุ่มเติมเงินจะปรากฏหน้า QR CODE ให้สแกนชำระเงินได้เลยจากนั้น *รีเฟรชหน้านี้อีกรอบเพื่อครวจสอบสถานะ
-                                </div>
-
-                                <div class="input-group mb-5">
-                                    <button type="submit" class="btn btn-success" style="width: 100%;"><i class="fa fa-money"></i> เติมเงิน</button>
-                                </div>
-
-                            </form>
-
-
-                        </div>
+                            </div>
 
 
 
-                        <br>
-
-                        <?php
-                        if (isset($_SESSION['username'])) {
-                        ?>
+                            <br>
 
 
                             <br>
